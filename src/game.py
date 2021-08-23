@@ -35,7 +35,7 @@ class Game():
             player.show()
             dealer.show_all()
 
-            print("二人とも\033[31mブラックジャック！！\033[0m")
+            print("二人ともブラックジャック！！")
             print("引き分けです！")
             self.End()
         elif dealer.is_21():
@@ -43,7 +43,7 @@ class Game():
             player.show()
             dealer.show_all()
 
-            print("\033[31mブラックジャック！\033[0m")
+            print("ブラックジャック！")
             print("ディーラーの勝ちです")
             self.End()
         elif player.is_21():
@@ -51,7 +51,7 @@ class Game():
             player.show()
             dealer.show_all()
             
-            print("\033[31mブラックジャック！\033[0m")
+            print("ブラックジャック！")
             print("あなたの勝ち！")
             self.End()
         else:
@@ -67,11 +67,11 @@ class Game():
             player.show()
 
             if player.is_bust():
-                print("\033[31mバースト！\033[0m")
+                print("バースト！")
                 print("ディーラーの勝ち！")
                 self.End()
             elif player.is_21():
-                print("\033[31mブラックジャック\033[0m")
+                print("ブラックジャック")
                 print("あなたの勝ち！")
                 self.End()
             else:
@@ -82,7 +82,8 @@ class Game():
         dealer.show_all()
 
         if dealer.is_more_17 and dealer.total > player.total:
-            print("\033[31mディーラーの勝ち！\033[0m")
+            print("ディーラーの勝ち！")
+            self.End()
         else:
             while True:
                 dealer.cards.append(cards.hit())
@@ -100,13 +101,18 @@ class Game():
                         player.show()
                         self.End()
                         break
+                    elif dealer.is_21():
+                        print("ブラックジャック！")
+                        player.show()
+                        self.End()
+                        break
                     elif player.total > dealer.total:
                         print("あなたの勝ち！")
                         player.show()
                         self.End()
                         break
                     else:
-                        print("\033[31mディーラーの勝ち！\033[0m")
+                        print("ディーラーの勝ち！")
                         player.show()
                         self.End()
                         break

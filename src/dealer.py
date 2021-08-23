@@ -10,14 +10,14 @@ class Dealer(Player):
         total = Card.counter(self.cards)
         self.total = total
 
-        return True if total >= 17 else False
+        return self.total >= 17
 
     def show(self):
         total = Card.counter(self.cards)
         self.total = total
 
         print("ディーラーのカードは...")
-        print(f"| {self.cards[0]} | © |", f"【{self.total}】")
+        print(f"| {self.cards[0]} | © |", f"【{Card.counter(self.cards[0])}】")
 
         time.sleep(1)
     

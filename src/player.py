@@ -12,13 +12,13 @@ class Player():
     def is_bust(self):
         total = Card.counter(self.cards)
 
-        return True if total > 21 else False
+        return total > 21
     
     def is_21(self):
         total = Card.counter(self.cards)
         self.total = total
 
-        return True if total == 21 else False
+        return self.total == 21
 
     def show(self):
         total = Card.counter(self.cards)
